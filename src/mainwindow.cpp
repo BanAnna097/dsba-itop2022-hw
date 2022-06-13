@@ -6,6 +6,8 @@
 #include "searchdialog.h"
 #include "confirmdelete.h"
 #include <QFileDialog>
+#include <QRegularExpression>
+#include <QAbstractTableModel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,12 +19,17 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionAbout, SIGNAL(triggered()), this, SLOT(showAbout()));
     QObject::connect(ui->editButton, SIGNAL(clicked()), this, SLOT(editRowSlot()));
     QObject::connect(ui->addButton, SIGNAL(clicked()), this, SLOT(addRowSlot()));
+    QObject::connect(ui->nameFilterlineEdit, SIGNAL(textChanged(const QString &)), this, SLOT(updateFilter(const QString &)));
     QObject::connect(ui->searchButton, SIGNAL(clicked()), this, SLOT(search()));
     QObject::connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteRowSlot()));
-    QObject::connect(ui->tableView, SIGNAL(clicked(QModelIndex)), this, SLOT(changeActiveRow(QModelIndex)));
 
     _universityModel = new UniversityModel(this);
-    ui->tableView->setModel(_universityModel);
+//    ui->tableView->setModel(_universityModel);
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(_universityModel);
+    proxyModel->setFilterKeyColumn(1);
+    ui->tableView->setModel(proxyModel);
+    ui->tableView->setSortingEnabled(true);
 }
 
 void MainWindow::on_tableView_doubleClicked(const QModelIndex &index)
@@ -39,8 +46,8 @@ void MainWindow::loadFile()
                                                     "../",
                                                     "Data (*.csv)");
     _universityModel->fillDataTableFromFile(fileName);
-    ui->tableView->setModel(_universityModel);
-
+    proxyModel->setSourceModel(_universityModel);
+    ui->tableView->setModel(proxyModel);
 }
 
 void MainWindow::saveFile()
@@ -89,6 +96,11 @@ void MainWindow::search()
 {
     SearchDialog d(this);
     d.exec();
+}
+
+void MainWindow::updateFilter(const QString & text)
+{
+    proxyModel->setFilterRegularExpression(QRegularExpression(text));
 }
 
 MainWindow::~MainWindow()

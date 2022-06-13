@@ -25,11 +25,13 @@ private slots:
     void deleteRowSlot();
     void showAbout();
     void search();
+    void updateFilter(const QString & text);
     void on_tableView_doubleClicked(const QModelIndex &index);
 
 private:
     size_t _shownDetailsColumn;
     UniversityModel *_universityModel;
+    QSortFilterProxyModel *proxyModel;
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
