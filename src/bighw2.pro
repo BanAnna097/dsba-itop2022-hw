@@ -11,7 +11,11 @@ CONFIG += c++17
 SOURCES += \
     aboutdialog.cpp \
     addrowdialog.cpp \
+    colordelegate.cpp \
+    comboboxdelegate.cpp \
+    confirmcancel.cpp \
     confirmdelete.cpp \
+    dateeditdelegate.cpp \
     main.cpp \
     mainwindow.cpp \
     searchdialog.cpp \
@@ -20,7 +24,11 @@ SOURCES += \
 HEADERS += \
     aboutdialog.h \
     addrowdialog.h \
+    colordelegate.h \
+    comboboxdelegate.h \
+    confirmcancel.h \
     confirmdelete.h \
+    dateeditdelegate.h \
     mainwindow.h \
     searchdialog.h \
     universitymodel.h
@@ -28,6 +36,7 @@ HEADERS += \
 FORMS += \
     aboutdialog.ui \
     addrowdialog.ui \
+    confirmcancel.ui \
     confirmdelete.ui \
     mainwindow.ui \
     searchdialog.ui

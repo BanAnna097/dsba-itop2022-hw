@@ -26,6 +26,8 @@ private slots:
     void showAbout();
     void search();
     void updateFilter(const QString & text);
+    void filterStudents();
+    void colorGenders();
     void on_tableView_doubleClicked(const QModelIndex &index);
 
 private:
@@ -33,5 +35,6 @@ private:
     UniversityModel *_universityModel;
     QSortFilterProxyModel *proxyModel;
     Ui::MainWindow *ui;
+    bool colored = false;
 };
 #endif // MAINWINDOW_H

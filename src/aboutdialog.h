@@ -2,6 +2,7 @@
 #define ABOUTDIALOG_H
 
 #include <QDialog>
+#include <QPainter>
 
 namespace Ui {
 class AboutDialog;
@@ -17,6 +18,15 @@ public:
 
 private:
     Ui::AboutDialog *ui;
+};
+
+class LogoWidget : public QWidget
+{
+  Q_OBJECT
+public:
+  LogoWidget (QWidget */*parent*/) {}
+protected:
+  void paintEvent (QPaintEvent *event) override;
 };
 
 #endif // ABOUTDIALOG_H

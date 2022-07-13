@@ -11,10 +11,33 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HSE Database</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="5" column="0" rowspan="2" colspan="7">
+     <widget class="QTableView" name="tableView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="5">
+     <widget class="QPushButton" name="editButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Edit</string>
+      </property>
+     </widget>
+    </item>
     <item row="7" column="0">
      <widget class="QPushButton" name="deleteButton">
       <property name="sizePolicy">
@@ -28,18 +51,21 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0" rowspan="2" colspan="6">
-     <widget class="QTableView" name="tableView">
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="nameFilterlineEdit">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="placeholderText">
+       <string>Search by name</string>
+      </property>
      </widget>
     </item>
-    <item row="7" column="5">
-     <widget class="QPushButton" name="addButton">
+    <item row="4" column="5">
+     <widget class="QPushButton" name="searchButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -47,11 +73,11 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Add</string>
+       <string>Search</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="3">
+    <item row="4" column="4">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
        <widget class="QCheckBox" name="studentsCheckBox">
@@ -96,8 +122,8 @@
       </item>
      </layout>
     </item>
-    <item row="4" column="4">
-     <widget class="QPushButton" name="searchButton">
+    <item row="7" column="6">
+     <widget class="QPushButton" name="addButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -105,12 +131,12 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Search</string>
+       <string>Add</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="4">
-     <widget class="QPushButton" name="editButton">
+    <item row="4" column="3">
+     <widget class="QCheckBox" name="colorGendersCheckBox">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -118,20 +144,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="nameFilterlineEdit">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="placeholderText">
-       <string>Search by name</string>
+       <string>Color genders</string>
       </property>
      </widget>
     </item>
